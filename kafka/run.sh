@@ -36,6 +36,10 @@ export KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS="${KAFKA_GROUP_INITIAL_REBALANCE_D
 # Convert all KAFKA_* env vars into a .properties file
 gomplate -f server.properties.tmpl -o server.properties
 
+# Setup log4j
+mkdir -p /etc/kafka
+gomplate -f log4j.properties.tmpl -o /etc/kafka/log4j.properties
+
 if [[ ! -f "$KAFKA_LOG_DIRS"/meta.properties ]]; then
   cluster_id="$(kafka-storage random-uuid)"
   kafka-storage format --config server.properties --cluster-id "$cluster_id"

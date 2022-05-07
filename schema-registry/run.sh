@@ -17,4 +17,9 @@ export SCHEMA_REGISTRY_DEBUG="${SCHEMA_REGISTRY_DEBUG:-false}"
 # Convert all KAFKA_* env vars into a .properties file
 gomplate -f schema-registry.properties.tmpl -o schema-registry.properties
 
+echo "Waiting for kafka broker to be up..."
+while ! kafka-topics --bootstrap-server=$SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS --list >/dev/null ; do
+  echo "Waiting for kafka broker to be up..."
+done
+
 schema-registry-start schema-registry.properties

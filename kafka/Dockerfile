@@ -4,7 +4,7 @@ FROM $BASE_IMAGE
 
 WORKDIR /app
 
-COPY run.sh server.properties.tmpl ./
+COPY run.sh log4j.properties.tmpl server.properties.tmpl ./
 
 EXPOSE 9092
 EXPOSE 9093
