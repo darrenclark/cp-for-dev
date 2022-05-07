@@ -6,6 +6,8 @@ ARG CONFLUENT_PLATFORM_URL="http://packages.confluent.io/archive/7.1/confluent-c
 
 RUN apt-get update -y && apt-get install -y curl rsync
 
+COPY --from=hairyhenderson/gomplate:stable /gomplate /bin/gomplate
+
 RUN mkdir /confluent && \
     curl -f -o /tmp/confluent.tar.gz "$CONFLUENT_PLATFORM_URL" && \
     tar xzvf /tmp/confluent.tar.gz --strip-components=1 -C /confluent && \

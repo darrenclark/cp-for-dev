@@ -1,0 +1,5 @@
+{{- range $name, $value := .Env -}}
+{{- if and ($name | strings.HasPrefix "KAFKA_") (ne 0 ($value | len)) -}}
+{{ $name | strings.TrimPrefix "KAFKA_" | strings.ReplaceAll "_" "." | strings.ToLower }}={{ $value }}
+{{ end }}
+{{- end -}}
