@@ -1,0 +1,5 @@
+{{- range $name, $value := .Env -}}
+{{- if and ($name | strings.HasPrefix "SCHEMA_REGISTRY_") (ne 0 ($value | len)) -}}
+{{ $name | strings.TrimPrefix "SCHEMA_REGISTRY_" | strings.ReplaceAll "_" "." | strings.ToLower }}={{ $value }}
+{{ end }}
+{{- end -}}

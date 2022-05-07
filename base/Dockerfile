@@ -4,7 +4,7 @@ FROM $BASE_IMAGE
 
 ARG CONFLUENT_PLATFORM_URL="http://packages.confluent.io/archive/7.1/confluent-community-7.1.1.tar.gz"
 
-RUN apt-get update -y && apt-get install -y curl rsync
+RUN apt-get update -y && apt-get install -y curl netcat rsync
 
 COPY --from=hairyhenderson/gomplate:stable /gomplate /bin/gomplate
 
