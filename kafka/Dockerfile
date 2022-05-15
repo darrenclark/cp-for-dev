@@ -1,4 +1,4 @@
-ARG BASE_IMAGE="quay.io/darrenjoelclark/cp-for-dev-base:7.1.1"
+ARG BASE_IMAGE
 
 FROM $BASE_IMAGE
 

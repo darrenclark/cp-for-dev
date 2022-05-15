@@ -1,6 +1,6 @@
 services:
   broker:
-    image: quay.io/darrenjoelclark/cp-for-dev-kafka:7.1.1
+    image: ghcr.io/darrenclark/cp-for-dev-kafka:latest
     hostname: broker
     container_name: broker
     ports:
@@ -20,7 +20,7 @@ services:
       start_period: 30s
 
   schema-registry:
-    image: quay.io/darrenjoelclark/cp-for-dev-schema-registry:7.1.1
+    image: ghcr.io/darrenclark/cp-for-dev-schema-registry:latest
     hostname: schema-registry
     container_name: schema-registry
     depends_on:
@@ -37,7 +37,6 @@ services:
       timeout: 5s
       retries: 3
       start_period: 30s
-
 
 volumes:
   brokerdata: {}

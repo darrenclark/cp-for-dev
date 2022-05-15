@@ -2,7 +2,7 @@ ARG BASE_IMAGE="azul/zulu-openjdk:17-jre"
 
 FROM $BASE_IMAGE
 
-ARG CONFLUENT_PLATFORM_URL="http://packages.confluent.io/archive/7.1/confluent-community-7.1.1.tar.gz"
+ARG CONFLUENT_PLATFORM_URL
 
 RUN apt-get update -y && apt-get install -y curl netcat rsync
 
