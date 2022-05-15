@@ -24,6 +24,11 @@ cd cp-for-dev
 docker compose up -d
 ```
 
+This gets:
+
+- Kafka running on port `9092` (no authentication)
+- Schema Registry running on port `8081` (no authentication)
+
 This uses pre-built images from here:
 
 - https://github.com/users/darrenclark/packages/container/package/cp-for-dev-kafka
